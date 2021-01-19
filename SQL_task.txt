@@ -1,0 +1,52 @@
+1. select COUNT(id) as cities from city where countrycode='USA';
+
+2. select population, LifeExpectancy from country where name='argentina'; 
+
+3. select name from country where LifeExpectancy is not null order by lifeexpectancy desc limit 1;
+
+4. select country.capital from country
+	left join city
+		on country.name = city.name
+	where
+		country.name = 'spain';
+
+4.b (takes the code and finds the actual name)
+
+   select city.`name` from city
+	left join country
+		on country.capital = city.id
+	where
+		city.id = 653;
+
+5. select cl.`language` from countrylanguage cl
+	left join country c
+    on c.`code`=cl.countrycode
+	where c.region= 'Southeast Asia';
+ 
+
+6. select `name` from city where `name` like 'F%';
+
+7. select count(c.`name`) as cities from city c
+	left join country ctr
+		on ctr.`code`= c.countrycode
+	where c.countrycode= 'CHN';
+
+8. select `name`, population from country where population != 0 AND population is not null order by LifeExpectancy asc limit 1;
+
+9. select count(`name`) as countries from country;
+
+10. select `name` from country order by surfaceArea desc limit 10;
+
+11. select `name` from city where countrycode='JPN' order by population desc limit 10;
+
+12. update country set headOfState = 'Elizabeth II' where headofstate='Elisabeth II';
+
+	select `name`, `code` from country where headofstate = 'elizabeth II';
+
+13.  select `name` , (surfacearea / population) from country where population != 0 OR surfacearea != 0 order by (surfacearea / population) desc limit 10;
+
+14. select distinct `language` from countrylanguage;
+
+15. select `name`, GNP from country order by GNP desc limit 10;
+
+16. 
